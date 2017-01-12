@@ -1,2 +1,1 @@
-include 'alfa-web'
-
+include 'alfa-web', 'bravo-batch'
