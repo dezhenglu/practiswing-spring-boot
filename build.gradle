@@ -1,0 +1,45 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.3.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+subprojects {
+    apply plugin: "org.springframework.boot"
+
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+
+    def defaultEncoding = 'UTF-8'
+    tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
+}
+
+project(':alfa-web') {
+
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-web"
+        compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+        compile "org.springframework.boot:spring-boot-starter-security"
+        compile "org.springframework.boot:spring-boot-starter-data-jpa"
+
+        compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4"
+        compile "org.thymeleaf.extras:thymeleaf-extras-java8time"
+        compile "org.webjars:bootstrap:3.3.7"
+
+        runtime "com.h2database:h2"
+    }
+}
