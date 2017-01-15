@@ -1,5 +1,6 @@
 package alfa.spring.security;
 
+import alfa.spring.data.AccountEntity;
 import alfa.spring.data.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -7,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * Spring4.1以降でUserDetailsServiceをBean定義していたら自動的に使われる。
@@ -23,8 +26,9 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        Optional<AccountEntity> account = repository.findByName(username);
         return new MyUserDetails(
-                repository.findByName(username),
+                account.orElseThrow(() -> new UsernameNotFoundException(username)),
                 AuthorityUtils.createAuthorityList("ROLE_SAMPLE"));
     }
 }
