@@ -1,4 +1,4 @@
-package alfa.spring.data;
+package alpha.spring.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

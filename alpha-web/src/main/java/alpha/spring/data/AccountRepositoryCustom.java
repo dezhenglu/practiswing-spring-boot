@@ -1,6 +1,6 @@
-package alfa.spring.data;
+package alpha.spring.data;
 
-import alfa.domain.Account;
+import alpha.domain.Account;
 
 /**
  * @author irof

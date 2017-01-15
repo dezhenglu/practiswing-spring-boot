@@ -1,7 +1,7 @@
-package alfa.spring.security;
+package alpha.spring.security;
 
-import alfa.spring.data.AccountEntity;
-import alfa.spring.data.AccountRepository;
+import alpha.spring.data.AccountEntity;
+import alpha.spring.data.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

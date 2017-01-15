@@ -1,4 +1,4 @@
-package alfa.domain;
+package alpha.domain;
 
 /**
  * @author irof

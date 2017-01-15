@@ -1,7 +1,7 @@
-package alfa.service;
+package alpha.service;
 
-import alfa.domain.Account;
-import alfa.spring.data.AccountRepository;
+import alpha.domain.Account;
+import alpha.spring.data.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

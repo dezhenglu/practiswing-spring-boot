@@ -1,6 +1,6 @@
-package alfa.spring.security;
+package alpha.spring.security;
 
-import alfa.spring.data.AccountEntity;
+import alpha.spring.data.AccountEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 

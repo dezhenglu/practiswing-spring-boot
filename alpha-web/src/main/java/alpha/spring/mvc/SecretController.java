@@ -1,7 +1,7 @@
-package alfa.spring.mvc;
+package alpha.spring.mvc;
 
-import alfa.domain.Account;
-import alfa.spring.security.MyUserDetails;
+import alpha.domain.Account;
+import alpha.spring.security.MyUserDetails;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

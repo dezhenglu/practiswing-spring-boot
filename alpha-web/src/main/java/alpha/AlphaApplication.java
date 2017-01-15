@@ -1,7 +1,7 @@
-package alfa;
+package alpha;
 
-import alfa.domain.Account;
-import alfa.service.AccountService;
+import alpha.domain.Account;
+import alpha.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,10 +12,10 @@ import org.springframework.context.event.EventListener;
  * @author irof
  */
 @SpringBootApplication
-public class AlfaApplication {
+public class AlphaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AlfaApplication.class, args);
+        SpringApplication.run(AlphaApplication.class, args);
     }
 
     @Autowired
