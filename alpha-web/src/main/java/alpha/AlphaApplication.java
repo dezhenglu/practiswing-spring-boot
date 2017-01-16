@@ -2,11 +2,11 @@ package alpha;
 
 import alpha.domain.Account;
 import alpha.service.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import java.util.stream.Stream;
 
 /**
  * @author irof
@@ -15,18 +15,19 @@ import org.springframework.context.event.EventListener;
 public class AlphaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AlphaApplication.class, args);
-    }
+        ConfigurableApplicationContext context = SpringApplication.run(AlphaApplication.class, args);
 
-    @Autowired
-    AccountService service;
+        AccountService service = context.getBean(AccountService.class);
 
-    @EventListener(ContextRefreshedEvent.class)
-    void registerTestUser() {
-        service.register(Account.builder()
-                .username("user")
-                .password("password")
-                .mailAddress("user@hogedriven.net")
-                .build());
+        Stream.of(
+                "alpha", "bravo", "charlie", "delta", "echo",
+                "foxtrot", "golf", "hotel", "india", "juliet",
+                "kilo", "lima", "mike").forEach(v -> {
+            service.register(Account.builder()
+                    .username(v)
+                    .password("password")
+                    .mailAddress(v + "@hogedriven.net")
+                    .build());
+        });
     }
 }
