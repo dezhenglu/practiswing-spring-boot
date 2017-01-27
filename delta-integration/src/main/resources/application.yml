@@ -1,0 +1,10 @@
+delta:
+    ftp:
+        host: localhost
+        port: 21
+        username: bob
+        password: password
+        # デフォルトがアクティブモードになっている
+        # 0: ACTIVE_LOCAL_DATA_CONNECTION_MODE
+        # 2: PASSIVE_LOCAL_DATA_CONNECTION_MODE
+        clientMode: 2

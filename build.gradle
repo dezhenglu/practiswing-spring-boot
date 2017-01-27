@@ -25,6 +25,8 @@ subprojects {
 
     dependencies {
         testCompile "org.springframework.boot:spring-boot-starter-test"
+
+        testCompile 'org.assertj:assertj-core:3.6.2'
     }
 }
 
@@ -50,10 +52,17 @@ project(':bravo-batch') {
     }
 }
 
-
 project(':charlie-web') {
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-web"
         compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    }
+}
+
+project(':delta-integration') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-integration"
+        compile "org.springframework.integration:spring-integration-sftp"
+        compile "org.springframework.integration:spring-integration-ftp"
     }
 }
