@@ -31,6 +31,7 @@ public class CharlieApplication {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/login").setViewName("login");
+                registry.addViewController("/list").setViewName("list");
             }
         };
     }

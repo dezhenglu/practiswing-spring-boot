@@ -1,0 +1,24 @@
+{
+  "name": "charlie-web",
+  "version": "1.0.0",
+  "description": "* Spring MVC * Thymeleaf * AdminLTE",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "admin-lte": "^2.3.11",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.10.0",
+    "font-awesome": "^4.7.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
