@@ -20,8 +20,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li sec:authorize="isAuthenticated()"><a href="./secret/user.html" th:href="@{/secret/user}">マイページ</a>
-                </li>
+                <li sec:authorize="isAuthenticated()"><a href="./secret/user.html" th:href="@{/secret/user}">マイページ</a></li>
+                <li><a href="./forms.html" th:href="@{/forms}">フォーム</a></li>
                 <li sec:authorize="isAuthenticated()">
                     <a href="#" onclick="document.getElementById('logoutForm').submit();">ログアウト</a>
                     <form id="logoutForm" action="./index.html" th:action="@{/logout}" method="post">

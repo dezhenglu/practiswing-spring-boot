@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:text="${title}">タイトル</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" href="../static/css/theme.css" th:href="@{/css/theme.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./index.html" th:href="@{/}">実験場</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <section class="container">
+        <h1>入力</h1>
+
+        <form method="post" th:action="@{/forms}" th:object="${inputForm}">
+            <div class="form-group row" th:classappend="${#fields.hasErrors('text')}? has-error">
+                <label for="text" class="col-md-2 control-label">Text</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" value="Artisanal kale" id="text" th:field="*{text}"/>
+                    <div class="" th:if="${#fields.hasErrors('text')}" th:errors="*{text}">error!</div>
+                </div>
+            </div>
+            <div class="form-group row" th:classappend="${#fields.hasErrors('email')}? has-error">
+                <label for="email" class="col-md-2 control-label">Email</label>
+                <div class="col-md-10">
+                    <!-- type=email -->
+                    <input class="form-control" type="text" value="bootstrap@example.com" id="email" th:field="*{email}"/>
+                    <div class="" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">error!</div>
+                </div>
+            </div>
+            <div class="form-group row" th:classappend="${#fields.hasErrors('number')}? has-error">
+                <label for="number" class="col-md-2 control-label">Number</label>
+                <div class="col-md-10">
+                    <!-- type=number -->
+                    <input class="form-control" type="text" value="42" id="number" th:field="*{number}"/>
+                    <div class="" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">error!</div>
+                </div>
+            </div>
+            <div class="form-group row" th:classappend="${#fields.hasErrors('date')}? has-error">
+                <label for="date" class="col-md-2 control-label">Date</label>
+                <div class="col-md-10">
+                    <!-- type=date -->
+                    <input class="form-control" type="text" value="2011-08-19" id="date" th:field="*{date}"/>
+                    <div class="" th:if="${#fields.hasErrors('date')}" th:errors="*{date}">error!</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="form-control btn btn-primary">SUBMIT</button>
+            </div>
+        </form>
+
+    </section>
+
+    <section th:if="${outputForm}">
+        <h1>出力</h1>
+
+        <table class="table table-striped">
+            <thead>
+            <th>項目名</th>
+            <th>param(Thymeleaf)</th>
+            <th>@RequestBody</th>
+            <th>@ModelAttribute</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Text</td>
+                <td th:text="${param.text[0]}"></td>
+                <td th:text="${requestForm.text}"></td>
+                <td th:text="${outputForm.text}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td th:text="${param.email[0]}"></td>
+                <td th:text="${requestForm.email}"></td>
+                <td th:text="${outputForm.email}"></td>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td th:text="${param.number[0]}"></td>
+                <td th:text="${requestForm.number}"></td>
+                <td th:text="${outputForm.number}"></td>
+            </tr>
+            <tr>
+                <td>Dateee</td>
+                <td th:text="${param.date[0]}"></td>
+                <td th:text="${requestForm.date}"></td>
+                <td th:text="${outputForm.date}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+        th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>
