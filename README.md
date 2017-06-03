@@ -1,3 +1,5 @@
 # SpringBootの素振り
 
-バージョン: 1.4.3.RELEASE
+- Spring Boot: 1.5.3.RELEASE
+- Gradle: 3.5
+
