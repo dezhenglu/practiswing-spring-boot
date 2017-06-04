@@ -59,3 +59,10 @@ project(':delta-integration') {
         compile "org.springframework.integration:spring-integration-ftp"
     }
 }
+
+project(':juliet-jooq') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-jooq"
+        compile "com.h2database:h2"
+    }
+}

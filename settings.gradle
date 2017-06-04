@@ -1,5 +1,6 @@
 include 'alpha-web',
         'bravo-batch',
         'charlie-web',
-        'delta-integration'
+        'delta-integration',
+        'juliet-jooq'
 
