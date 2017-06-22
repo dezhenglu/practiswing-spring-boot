@@ -5,28 +5,26 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Locale;
 
 /**
  * バッチの本体処理とも言えるもの。
  * バッチのシンプルなStepは、 {@link ItemReader#read()} の戻り値が {@link ItemProcessor#process(Object)} に渡され、
  * さらにその戻り値が {@link ItemWriter#write(List)} に渡される形で構成される。
  */
-public class PersonItemProcessor implements ItemProcessor<Person, Person> {
+@Component
+public class PhoneticToLetterItemProcessor implements ItemProcessor<Phonetic, Letter> {
 
-    private static final Logger logger = LoggerFactory.getLogger(PersonItemProcessor.class);
+    private static final Logger logger = LoggerFactory.getLogger(PhoneticToLetterItemProcessor.class);
 
     @Override
-    public Person process(Person person) throws Exception {
-        String firstName = person.getFirstName().toUpperCase(Locale.ROOT);
-        String lastName = person.getLastName().toUpperCase(Locale.ROOT);
+    public Letter process(Phonetic phonetic) throws Exception {
+        Letter letter = new Letter(phonetic.value.substring(0, 1));
 
-        Person transformed = new Person(firstName, lastName);
+        logger.info("Converting ({}) into ({})", phonetic, letter);
 
-        logger.info("Converting ({}) into ({})", person, transformed);
-
-        return transformed;
+        return letter;
     }
 }
