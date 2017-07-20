@@ -60,6 +60,13 @@ project(':delta-integration') {
     }
 }
 
+project(':india-integration') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-integration"
+         compile 'com.rabbitmq:amqp-client:4.1.1'
+    }
+}
+
 project(':juliet-jooq') {
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-jooq"

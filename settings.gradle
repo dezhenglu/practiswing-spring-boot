@@ -2,5 +2,6 @@ include 'alpha-web',
         'bravo-batch',
         'charlie-web',
         'delta-integration',
+        'india-integration',
         'juliet-jooq'
 
