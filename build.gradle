@@ -79,3 +79,9 @@ project(':juliet-jooq') {
         compile "com.h2database:h2"
     }
 }
+
+project(':romeo-rabbitmq') {
+    dependencies {
+        compile 'org.springframework.boot:spring-boot-starter-amqp'
+    }
+}

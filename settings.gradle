@@ -4,5 +4,6 @@ include 'alpha-web',
         'delta-integration',
         'india-integration',
         'juliet-jooq',
-        'echo-email'
+        'echo-email',
+        'romeo-rabbitmq'
 
