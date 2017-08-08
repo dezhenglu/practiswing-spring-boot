@@ -60,6 +60,12 @@ project(':delta-integration') {
     }
 }
 
+project(':echo-email') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-mail"
+    }
+}
+
 project(':india-integration') {
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-integration"

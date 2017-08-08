@@ -3,5 +3,6 @@ include 'alpha-web',
         'charlie-web',
         'delta-integration',
         'india-integration',
-        'juliet-jooq'
+        'juliet-jooq',
+        'echo-email'
 
