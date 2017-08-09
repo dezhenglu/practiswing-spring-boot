@@ -22,9 +22,9 @@ public class Sender {
             try (AutoCloseable ac = channel::close) {
                 String QUEUE = "romeo.in";
 
-                channel.queueDeclare(QUEUE, false, false, false, Collections.emptyMap());
+                channel.queueDeclare(QUEUE, true, false, false, Collections.emptyMap());
                 byte[] body = ("HELLO_" + LocalTime.now()).getBytes();
-                channel.basicPublish("neko", QUEUE, MessageProperties.TEXT_PLAIN, body);
+                channel.basicPublish("", QUEUE, MessageProperties.TEXT_PLAIN, body);
             }
         }
     }
