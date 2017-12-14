@@ -1,9 +1,14 @@
 plugins {
-  id 'org.springframework.boot' version '1.5.6.RELEASE'
+  id 'org.springframework.boot' version '1.5.9.RELEASE'
 }
 
 subprojects {
     apply plugin: "org.springframework.boot"
+
+    ext['thymeleaf.version'] = '3.0.9.RELEASE'
+    ext['thymeleaf-layout-dialect.version'] = '2.2.2'
+    ext['thymeleaf-extras-springsecurity4.version'] = '3.0.2.RELEASE'
+    ext['thymeleaf-extras-java8time.version'] = '3.0.1.RELEASE'
 
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'

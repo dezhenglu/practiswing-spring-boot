@@ -1,8 +1,4 @@
-# ALFA-WEB
-
-SpringBootを使用したWebアプリケーション。
-
-# 使ってるもの
+# ALPHA-WEB
 
 * Spring MVC
 * Spring Security
