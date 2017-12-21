@@ -6,5 +6,6 @@ include 'alpha-web',
         'juliet-jooq',
         'echo-email',
         'romeo-rabbitmq',
+        'tango-test',
         'mike-mybatis'
 
