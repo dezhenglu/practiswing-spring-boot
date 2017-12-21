@@ -7,5 +7,6 @@ include 'alpha-web',
         'echo-email',
         'romeo-rabbitmq',
         'tango-test',
-        'mike-mybatis'
+        'mike-mybatis',
+        'whiskey-web'
 

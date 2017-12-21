@@ -104,3 +104,10 @@ project(':mike-mybatis') {
         compile "com.h2database:h2"
     }
 }
+
+project(':whiskey-web') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-web"
+        compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    }
+}
