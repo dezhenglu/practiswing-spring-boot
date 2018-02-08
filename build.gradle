@@ -1,7 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '1.5.9.RELEASE'
+    id 'org.springframework.boot' version '1.5.10.RELEASE'
 }
 
+repositories {
+    jcenter()
+}
 subprojects {
     apply plugin: "org.springframework.boot"
 
@@ -24,7 +27,7 @@ subprojects {
         compile "org.springframework.boot:spring-boot-devtools"
         testCompile "org.springframework.boot:spring-boot-starter-test"
 
-        testCompile 'org.assertj:assertj-core:3.8.0'
+        testCompile 'org.assertj:assertj-core:3.9.0'
     }
 }
 
@@ -65,23 +68,10 @@ project(':delta-integration') {
     }
 }
 
-project(':echo-email') {
-    dependencies {
-        compile "org.springframework.boot:spring-boot-starter-mail"
-    }
-}
-
 project(':india-integration') {
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-integration"
         compile 'com.rabbitmq:amqp-client:4.1.1'
-    }
-}
-
-project(':juliet-jooq') {
-    dependencies {
-        compile "org.springframework.boot:spring-boot-starter-jooq"
-        compile "com.h2database:h2"
     }
 }
 
