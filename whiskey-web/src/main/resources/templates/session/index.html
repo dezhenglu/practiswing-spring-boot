@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <title>SESSION</title>
+</head>
+<body>
+<div class="container">
+    <nav class="nav nav-pills">
+        <a class="nav-link" th:classappend="${controller}? '':'active'" href="./" th:href="@{/session}">INDEX</a>
+        <a class="nav-link" th:classappend="${controller == 'hibiki'}?'active'" href="./" th:href="@{/session/hibiki}">HIBIKI</a>
+        <a class="nav-link" th:classappend="${controller == 'hakushu'}?'active'" href="./" th:href="@{/session/hakushu}">HAKUSHU</a>
+        <a class="nav-link" th:classappend="${controller == 'akashi'}?'active'" href="./" th:href="@{/session/akashi}">AKASHI</a>
+    </nav>
+
+    <div th:if="${controller}" class="row">
+        <form class="col" action="./" th:action="@{/session/{controller}(controller=${controller})}" method="post">
+            <div class="card">
+                <div class="card-header">
+                    store
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="value" class="col-2">VALUE</label>
+                        <input type="text" class="form-control col-8" id="value" name="value"/>
+                        <input type="submit" class="btn btn-primary col-2" value="submit"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="col" action="./" th:action="@{/session/{controller}/complete(controller=${controller})}" method="post">
+            <div class="card">
+                <div class="card-header">
+                    complete
+                </div>
+                <div class="card-body">
+                    <input type="submit" class="btn btn-danger" value="submit"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            session
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered" th:object="${session}">
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>toString</th>
+                    <td th:text="*{toString()}"></td>
+                </tr>
+                <tr>
+                    <td>size</td>
+                    <td th:text="*{size()}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <dl class="row">
+                <th:block th:each="entry : ${session}">
+                    <dt class="col-3" th:text="${entry.key}"></dt>
+                    <dd class="col-9" th:text="${entry.value}"></dd>
+                </th:block>
+            </dl>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
